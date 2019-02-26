@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>学生信息查询</title>
@@ -73,15 +74,15 @@
     </tbody>
 </table>
 第<span id="pageno">1</span>页，共<span id="pagetotal"></span>页<br/>
-<input type="button" value="首页" name="Page" id="firstpage"/>
-<input type="button" value="上一页" name="Page" id="prevpage"/>
-<input type="button" value="下一页" name="Page" id="nextpage"/>
-<input type="button" value="末页" name="Page" id="lastpage"/><br/>
-查询条件:<br/>
-班级：<input type="text" id="grade"/><br/>
-性别：<input type="text" id="sex"/><br/>
-成绩段：<input type="text" id="scoremin""/>
-至<input type="text" id="scoremax"/>
-<input type="button" value="查询" id="select"/>
+    <input type="button" value="首页" name="Page" id="firstpage"/>
+    <input type="button" value="上一页" name="Page" id="prevpage"/>
+    <input type="button" value="下一页" name="Page" id="nextpage"/>
+    <input type="button" value="末页" name="Page" id="lastpage"/><br/>
+    查询条件:<br/>
+    班级：<input type="text" id="grade"/><br/>
+    性别：<input type="text" id="sex"/><br/>
+    成绩段：<input type="text" id="scoremin""/>
+    至<input type="text" id="scoremax"/>
+    <input type="button" value="查询" id="select"/>
 </body>
 </html>
