@@ -6,9 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.net.http.HttpRequest;
 
-@WebFilter("/main.jsp")
+@WebFilter("/jsp/main.jsp")
 public class LoginFilter implements Filter {
     public void destroy() {
     }

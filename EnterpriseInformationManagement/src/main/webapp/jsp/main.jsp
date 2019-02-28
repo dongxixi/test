@@ -159,9 +159,9 @@
                     }, "json"
                 );
             })
-        });
-        $("#pagesize").change(function () {
-            showlist();
+            $("#pagesize").change(function () {
+                showlist();
+            });
         });
     </script>
 </head>
