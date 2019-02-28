@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/LoginServlet")
@@ -28,12 +29,19 @@ public class LoginServlet extends HttpServlet {
         user.setUserName(username);
         user.setPassword(password);
 
+        HttpSession session = request.getSession();
+        session.setMaxInactiveInterval(60 * 60);
+
         boolean login = us.login(user);
 
         if (login) {
+            session.setAttribute("login", user);
+
             response.sendRedirect("jsp/main.jsp");
         } else {
             response.sendRedirect("index.jsp");
         }
+
+
     }
 }
