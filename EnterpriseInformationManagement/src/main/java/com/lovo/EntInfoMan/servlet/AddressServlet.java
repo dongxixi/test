@@ -2,7 +2,7 @@ package com.lovo.EntInfoMan.servlet;
 
 import com.lovo.EntInfoMan.bean.Address;
 import com.lovo.EntInfoMan.bean.SendBean;
-import com.lovo.EntInfoMan.service.IAddressService;
+import com.lovo.EntInfoMan.service.AddressService;
 import com.lovo.EntInfoMan.service.impl.AddressServiceImpl;
 import org.codehaus.jackson.map.ObjectMapper;
 
@@ -17,7 +17,7 @@ import java.util.List;
 @WebServlet("/AddressServlet")
 public class AddressServlet extends HttpServlet {
 
-    IAddressService as = new AddressServiceImpl();
+    AddressService as = new AddressServiceImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -26,7 +26,7 @@ public class AddressServlet extends HttpServlet {
 
         List<Address> list = as.getlist(pageno, pagesize);
         int total = as.getTotalNum();
-        int pageTotal = total % 5 == 0 ? total / 5 : total / 5 + 1;
+        int pageTotal = total % pagesize == 0 ? total / pagesize : total / pagesize + 1;
 
         SendBean sendBean = new SendBean(pageTotal, list);
 

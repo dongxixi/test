@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lovo.dao.UserPowerDao">
+
+    <select id="getPowerListByUserName" resultType="string">
+        SELECT DISTINCT p_name FROM t_user_role as ur
+        JOIN t_user as u ON ur.ur_user_id = u.u_id
+        JOIN t_role_power AS rp on rp.rp_role_id = ur.ur_role_id
+        JOIN t_power as p ON rp.rp_power_id = p.p_id
+        WHERE u_name = #{name}
+        ORDER BY p_name
+    </select>
+
+</mapper>

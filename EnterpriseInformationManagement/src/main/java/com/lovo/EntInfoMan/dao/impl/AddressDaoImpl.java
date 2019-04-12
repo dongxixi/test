@@ -1,13 +1,13 @@
 package com.lovo.EntInfoMan.dao.impl;
 
 import com.lovo.EntInfoMan.bean.Address;
-import com.lovo.EntInfoMan.dao.IAddressDao;
+import com.lovo.EntInfoMan.dao.AddressDao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddressDaoImpl extends com.lovo.EntInfonMan.Util.DBUtil implements IAddressDao {
+public class AddressDaoImpl extends com.lovo.EntInfonMan.Util.DBUtil implements AddressDao {
     @Override
     public int add(Address address) {
         try {
@@ -105,7 +105,7 @@ public class AddressDaoImpl extends com.lovo.EntInfonMan.Util.DBUtil implements 
         return list;
     }
 
-    @Override
+//    @Override
     public Address getAdderss(int id) {
 
         Address address = new Address();

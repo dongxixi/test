@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/data/jpa
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+    <!--声明组件扫描器，指定service注解所在包名-->
+    <context:component-scan base-package="com.lovo.service.impl"/>
+
+    <!--<context:property-placeholder ignore-unresolvable="true" location="classpath:jdbc.properties"/>-->
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:user.properties"/>
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:hibernate.properties"/>
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <bean id="localContainerEntityManagerFactoryBean"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+        </property>
+        <property name="packagesToScan" value="com.lovo.bean"/>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.current_session_context_class">thread</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="databasePlatform" value="${dialect}"/>
+    </bean>
+
+    <bean id="jpaTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="localContainerEntityManagerFactoryBean"/>
+    </bean>
+
+    <jpa:repositories base-package="com.lovo.dao" entity-manager-factory-ref="localContainerEntityManagerFactoryBean"/>
+
+    <tx:annotation-driven proxy-target-class="true" transaction-manager="jpaTransactionManager"/>
+
+    <!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+    <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--<property name="typeAliasesPackage" value="com.lovo.bean"/>-->
+    <!--<property name="mapperLocations" value="mapper/*.xml"/>-->
+    <!--</bean>-->
+
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+    <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>-->
+    <!--<property name="basePackage" value="com.lovo.dao"/>-->
+    <!--</bean>-->
+
+
+    <!--<bean id="localSessionFactoryBean" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">-->
+    <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--<property name="packagesToScan" value="com.lovo.bean"/>-->
+    <!--<property name="hibernateProperties">-->
+    <!--<props>-->
+    <!--<prop key="hibernate.dialect">${dialect}</prop>-->
+    <!--<prop key="hibernate.show_sql">${show_sql}</prop>-->
+    <!--<prop key="hibernate.hbm2ddl.auto">${hbm2ddl.auto}</prop>-->
+    <!--</props>-->
+    <!--</property>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash;配置hibernate事务&ndash;&gt;-->
+    <!--<bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">-->
+    <!--<property name="sessionFactory" ref="localSessionFactoryBean"/>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash;配置事务通知&ndash;&gt;-->
+    <!--<tx:advice id="hibernateAdvice" transaction-manager="hibernateTransactionManager">-->
+    <!--<tx:attributes>-->
+    <!--<tx:method name="*" rollback-for="Exception"/>-->
+    <!--<tx:method name="find*" read-only="true"/>-->
+    <!--<tx:method name="get*" read-only="true"/>-->
+    <!--</tx:attributes>-->
+    <!--</tx:advice>-->
+
+    <!--<aop:config>-->
+    <!--<aop:advisor advice-ref="hibernateAdvice" pointcut="execution(* com.lovo.service..*.*(..))"/>-->
+    <!--</aop:config>-->
+
+
+    <!--&lt;!&ndash; 配置事务管理器 &ndash;&gt;-->
+    <!--<bean id="transactionManager"-->
+    <!--class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+    <!--&lt;!&ndash; 注入数据库连接池 &ndash;&gt;-->
+    <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; 配置基于注解的声明式事务 &ndash;&gt;-->
+    <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
+
+        <!--<tx:advice id="interceptor" transaction-manager="transactionManager">-->
+        <!--<tx:attributes>-->
+        <!--<tx:method name="*" rollback-for="Exception"/>-->
+        <!--</tx:attributes>-->
+        <!--</tx:advice>-->
+        <!--<aop:config>-->
+        <!--<aop:advisor advice-ref="interceptor" pointcut="execution(* *..*.service.impl.*.*(..))"/>-->
+        <!--</aop:config>-->
+</beans>

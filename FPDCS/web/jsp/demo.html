@@ -1,0 +1,391 @@
+<!--<%&#45;&#45;-->
+<!--Created by IntelliJ IDEA.-->
+<!--User: yang1-->
+<!--Date: 2019/3/5-->
+<!--Time: 19:59-->
+<!--To change this template use File | Settings | File Templates.-->
+<!--&#45;&#45;%>-->
+<!--<%@ page contentType="text/html;charset=UTF-8" language="java" %>-->
+<html>
+<head>
+    <title>森林病虫害防治系统</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="../js/main.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                    aria-expanded="false" aria-controls="collapseOne">
+                                资料管理
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <button type="button" class="btn btn-link" id="wormpage">虫害一览</button>
+                            <br/>
+                            <button type="button" class="btn btn-link" id="diseasepage">病害一览</button>
+                            <br/>
+                            <button type="button" class="btn btn-link" id="mousepage">病害一览</button>
+                            <!--<a href="worm.html">虫害一览</a><br/>-->
+                            <!--<a href="disease.html">病害一览</a><br/>-->
+                            <!--<a href="mouse.html">病害一览</a>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                    aria-expanded="false" aria-controls="collapseTwo">
+                                灾情防治
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            <button type="button" class="btn btn-link" id="areapage">区域一览</button>
+                            <br/>
+                            <button type="button" class="btn btn-link" id="classpage">小班管理</button>
+                            <br/>
+                            <button type="button" class="btn btn-link" id="thingpage">事件记录</button>
+                            <!--<a href="area.html">区域一览</a><br/>-->
+                            <!--<a href="class.html">小班管理</a><br/>-->
+                            <!--<a href="thing.html">事件记录</a>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                                    aria-expanded="false" aria-controls="collapseThree">
+                                专家会商
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            <button type="button" class="btn btn-link" id="proficientpage">专家一览</button>
+                            <br/>
+                            <button type="button" class="btn btn-link" id="conferpage">会商灾情</button>
+                            <!--<a href="proficient.html">专家一览</a><br/>-->
+                            <!--<a href="confer.html">会商灾情</a>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
+                                    aria-expanded="false" aria-controls="collapseFour">
+                                药剂器械出库管理
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                        <div class="card-body">
+                            <button type="button" class="btn btn-link" id="drugpage">药剂器械管理</button>
+                            <br/>
+                            <button type="button" class="btn btn-link" id="outwarehousepage">出库管理</button>
+                            <!--<a href="drug.html">药剂器械管理</a><br/>-->
+                            <!--<a href="outwarehouse.html">出库管理</a>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFive">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive"
+                                    aria-expanded="false" aria-controls="collapseFive">
+                                系统信息
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                        <div class="card-body">
+                            <button type="button" class="btn btn-link" id="userpage">用户管理</button>
+                            <br/>
+                            <button type="button" class="btn btn-link" id="logspage">日志一览</button>
+                            <!--<a href="user.html">用户管理</a><br/>-->
+                            <!--<a href="logs.html">日志一览</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="page-header" style="margin: 20px;text-align: center">
+                <h2 id="pagetitle">鼠害一览</h2>
+            </div>
+            <div class="row" id="querydiv">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="鼠害名称">
+                </div>
+                <button type="button" class="btn btn-primary">查询</button>
+            </div>
+            <br/>
+            <table class="table" id="dataTable">
+                <thead id="datahead">
+                <tr>
+                    <th>名称</th>
+                    <th>食物</th>
+                    <th>主要危害</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody id="databody">
+                <tr>
+                    <td>中华鼢鼠</td>
+                    <td>植物的根、茎等</td>
+                    <td>啃食树木根系，水土流失</td>
+                    <td>
+                        <button type="button" class="btn btn-link btn-sm" data-toggle="modal"
+                                data-target="#myModa2">
+                            查看详情
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>中华鼢鼠</td>
+                    <td>植物的根、茎等</td>
+                    <td>啃食树木根系，水土流失</td>
+                    <td>
+                        <button type="button" class="btn btn-link btn-sm" data-toggle="modal"
+                                data-target="#myModa2">
+                            查看详情
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>中华鼢鼠</td>
+                    <td>植物的根、茎等</td>
+                    <td>啃食树木根系，水土流失</td>
+                    <td>
+                        <button type="button" class="btn btn-link btn-sm" data-toggle="modal"
+                                data-target="#myModa2">
+                            查看详情
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="btn-group col-sm-4" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-primary" id="firstpage">首页</button>
+                    <button type="button" class="btn btn-primary" id="prevpage">上一页</button>
+                    <button type="button" class="btn btn-primary" id="nextpage">下一页</button>
+                    <button type="button" class="btn btn-primary" id="lastpage">末页</button>
+                </div>
+                <div class="col-sm-4">
+                    第<input style="width: 30px;" type="text" id="pageno"/>页，共<span id="pagetotal">5</span>页
+                </div>
+            </div>
+            <div class="col-md-6 offset-md-7" id="otherbutton">
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                    添加新鼠害
+                </button>
+            </div>
+
+
+            <!-- 添加Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">添加新鼠害</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div id="addmodal">
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-2">名称</div>
+                                    <div class="col-sm-4"><input type="text" class="form-control"
+                                                                 id="exampleFormControlInput1"></div>
+                                    <div class="col-sm-2">食物</div>
+                                    <div class="col-sm-4"><input type="text" class="form-control"
+                                                                 id="exampleFormControlInput2"></div>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-2">繁殖</div>
+                                    <div class="col-sm-4"><input type="text" class="form-control"
+                                                                 id="exampleFormControlInput3"></div>
+                                    <div class="col-sm-2">天敌</div>
+                                    <div class="col-sm-4"><input type="text" class="form-control"
+                                                                 id="exampleFormControlInput4"></div>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-2">图片</div>
+                                    <div class="col-sm-4">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="customFile1">
+                                            <label class="custom-file-label" for="customFile1">选择文件</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-2">防治措施</div>
+                                    <div class="col-sm-4">
+                                        <textarea class="form-control" aria-label="With textarea"
+                                                  style="resize: none"></textarea>
+                                    </div>
+                                    <div class="col-sm-2">主要危害</div>
+                                    <div class="col-sm-4">
+                                        <textarea class="form-control" aria-label="With textarea"
+                                                  style="resize: none"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary">添加</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 查看Modal -->
+            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabe2">查看鼠害详情</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div id="infomodal">
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <div class="row">
+                                            <div class="col-sm-4">名称</div>
+                                            <div class="col-sm-8"><label>褐家鼠</label></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4">繁殖</div>
+                                            <div class="col-sm-8"><label>一年6~8胎，每胎7~10只</label></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4">食物</div>
+                                            <div class="col-sm-8"><label>各种谷类、肉类</label></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4">天敌</div>
+                                            <div class="col-sm-8"><label>狐狸、黄鼠狼、蛇</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="row">
+                                            <div class="col-sm-8 offset-sm-4">
+                                                <img src="../source/yworm.jpg"
+                                                     class="img-rounded img-responsive center-block"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-2">主要危害</div>
+                                    <div class="col-sm-4"><label>破坏植被和电缆</label></div>
+                                    <div class="col-sm-2">防治措施</div>
+                                    <div class="col-sm-4">
+                                        <label>放养蛇、猫头鹰等天敌，捕鼠夹等器械捕鼠杀鼠灵等化学灭鼠</label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 修改Modal -->
+            <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabe2">查看鼠害详情</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div id="updatemodal">
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <div class="row">
+                                            <div class="col-sm-4">名称</div>
+                                            <div class="col-sm-8"><label>褐家鼠</label></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4">繁殖</div>
+                                            <div class="col-sm-8"><label>一年6~8胎，每胎7~10只</label></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4">食物</div>
+                                            <div class="col-sm-8"><label>各种谷类、肉类</label></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4">天敌</div>
+                                            <div class="col-sm-8"><label>狐狸、黄鼠狼、蛇</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="row">
+                                            <div class="col-sm-8 offset-sm-4">
+                                                <img src="../source/yworm.jpg"
+                                                     class="img-rounded img-responsive center-block"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-2">主要危害</div>
+                                    <div class="col-sm-4"><label>破坏植被和电缆</label></div>
+                                    <div class="col-sm-2">防治措施</div>
+                                    <div class="col-sm-4">
+                                        <label>放养蛇、猫头鹰等天敌，捕鼠夹等器械捕鼠杀鼠灵等化学灭鼠</label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

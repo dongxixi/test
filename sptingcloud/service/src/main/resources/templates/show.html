@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+
+    <title>测试</title>
+</head>
+<body>
+<div>
+    <input type="text" th:field="${user.name}"/>
+    <input type="text" th:field="${user.password}"/>
+</div>
+
+<div>
+    <table border="1">
+        <tr>
+            <td>用户名</td>
+            <td>密码</td>
+        </tr>
+
+        <tr th:each="user,ustate:${userList}">
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.password}"></td>
+        </tr>
+
+    </table>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lovo.dao.GoodDao">
+
+    <insert id="addGood">
+        insert into t_goods (id, good_name, good_num) values (null, #{goodName}, #{goodNum})
+    </insert>
+
+    <delete id="delGood">
+        delete from t_goods where id = #{id}
+    </delete>
+
+    <update id="updateGood">
+        update t_goods set good_num = #{goodNum} where id = #{id}
+    </update>
+
+    <select id="getListGoods" resultType="Good">
+        select id, good_name as goodName, good_num as goodNum from t_goods
+    </select>
+
+</mapper>

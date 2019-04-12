@@ -1,7 +1,7 @@
 package com.lovo.EntInfoMan.servlet;
 
 import com.lovo.EntInfoMan.bean.Address;
-import com.lovo.EntInfoMan.service.IAddressService;
+import com.lovo.EntInfoMan.service.AddressService;
 import com.lovo.EntInfoMan.service.impl.AddressServiceImpl;
 
 import javax.servlet.ServletException;
@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet("/AddAddressServlet")
 public class AddAddressServlet extends HttpServlet {
 
-    IAddressService as = new AddressServiceImpl();
+    AddressService as = new AddressServiceImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");

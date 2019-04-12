@@ -1,15 +1,19 @@
 package com.lovo.EntInfoMan.service.impl;
 
 import com.lovo.EntInfoMan.bean.Address;
-import com.lovo.EntInfoMan.dao.IAddressDao;
+import com.lovo.EntInfoMan.dao.AddressDao;
 import com.lovo.EntInfoMan.dao.impl.AddressDaoImpl;
-import com.lovo.EntInfoMan.service.IAddressService;
+import com.lovo.EntInfoMan.service.AddressService;
 
 import java.util.List;
 
-public class AddressServiceImpl implements IAddressService {
+public class AddressServiceImpl implements AddressService {
 
-    IAddressDao ad = new AddressDaoImpl();
+    AddressDao ad;
+
+    public void setAd(AddressDao ad) {
+        this.ad = ad;
+    }
 
     @Override
     public boolean add(Address address) {
@@ -23,13 +27,14 @@ public class AddressServiceImpl implements IAddressService {
 
     @Override
     public List<Address> getlist(int pageNo, int pageSize) {
-        return ad.getlist(pageNo, pageSize);
+
+        return ad.getlist((pageNo - 1) * pageSize < 0 ? 0 : (pageNo - 1) * pageSize, pageSize);
     }
 
-    @Override
-    public Address getAdderss(int id) {
-        return ad.getAdderss(id);
-    }
+//    @Override
+//    public Address getAdderss(int id) {
+//        return ad.getAdderss(id);
+//    }
 
     @Override
     public int getTotalNum() {

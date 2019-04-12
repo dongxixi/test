@@ -1,11 +1,11 @@
 package com.lovo.EntInfoMan.dao.impl;
 
 import com.lovo.EntInfoMan.bean.User;
-import com.lovo.EntInfoMan.dao.IUserDao;
+import com.lovo.EntInfoMan.dao.UserDao;
 
 import java.sql.SQLException;
 
-public class UserDaoImpl extends com.lovo.EntInfonMan.Util.DBUtil implements IUserDao {
+public class UserDaoImpl extends com.lovo.EntInfonMan.Util.DBUtil implements UserDao {
     @Override
     public int login(User user) {
         try {
